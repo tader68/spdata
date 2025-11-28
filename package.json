@@ -1,0 +1,15 @@
+{
+  "name": "qa-data-labeling-system",
+  "version": "1.0.0",
+  "description": "Hệ thống QA Data Labeling với AI",
+  "scripts": {
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd backend && python app.py",
+    "start:frontend": "cd frontend && npm run dev",
+    "install:all": "cd backend && pip install -r requirements.txt && cd ../frontend && npm install",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

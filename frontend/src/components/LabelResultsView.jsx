@@ -135,7 +135,8 @@ const LabelResultsView = ({ labelResult, onBack, onReset }) => {
     const hasRowData = rowData && Object.keys(rowData).length > 0
 
     if (media && media.batch_id && media.filename) {
-      const src = `/api/media/${encodeURIComponent(media.batch_id)}/${encodeURIComponent(media.filename)}`
+      const apiBase = axios.defaults.baseURL || ''
+      const src = `${apiBase}/api/media/${encodeURIComponent(media.batch_id)}/${encodeURIComponent(media.filename)}`
 
       const meta = hasRowData ? (
         <pre className="mt-2 text-xs bg-gray-50 p-2 rounded border overflow-x-auto">

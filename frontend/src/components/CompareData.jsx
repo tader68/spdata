@@ -669,7 +669,8 @@ const CompareData = ({ initialProject }) => {
       return <span className="text-[11px] text-gray-400">Không có media</span>
     }
 
-    const src = `/api/media/${encodeURIComponent(media.batch_id)}/${encodeURIComponent(media.filename)}`
+    const apiBase = axios.defaults.baseURL || ''
+    const src = `${apiBase}/api/media/${encodeURIComponent(media.batch_id)}/${encodeURIComponent(media.filename)}`
 
     if (media.type === 'image') {
       return (

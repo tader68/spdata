@@ -317,6 +317,10 @@ function App() {
 
   // Sync URL theo state hiện tại (view + step QA/Label + project IDs + filter Projects)
   useEffect(() => {
+    // Trong môi trường production (Vercel), không thay đổi pathname để tránh 404 khi F5 các route như /compare, /projects...
+    // Vẫn giữ behavior đổi URL khi chạy dev (Vite) để tiện debug.
+    if (import.meta.env.PROD) return
+
     try {
       let path = getPathFromState(currentView, currentStep, labelStep, compareSection, projectsFilter)
 
